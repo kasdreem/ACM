@@ -7,7 +7,7 @@
 package teatro;
 
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -19,16 +19,18 @@ public class Teatro {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int x=0,y=0,rx=0,ry=0;
-        
+        long x=0,y=0,rx=0,ry=0;
+        long resultado=0;
         Scanner leer =new Scanner (System.in);
      
-        System.out.println("n");
-        int n=leer.nextInt();
-        System.out.println("m");
-        int m=leer.nextInt();
-        System.out.println("a");
-        int a=leer.nextInt();
+       
+        long n=leer.nextInt();
+       
+        long m=leer.nextInt();
+        
+        long
+                a=leer.nextInt();
+        
         x=m/a;
         rx=m%a;
         y=n/a;
@@ -39,8 +41,10 @@ public class Teatro {
         if(ry>0){
             y++;
         }
-        n=x*y;
-        System.out.println(n);
+        resultado=(y*x);
+        
+        System.out.println(resultado);
+       
     }
     
 }
