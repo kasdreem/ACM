@@ -27,19 +27,12 @@ public class Sandia {
        peso=leer.nextInt();
       // peso=(int) (Math.random()*100+1);
         
-        resto=peso%2;
-        if(peso==2){
-           System.out.println("no"); 
-           System.exit(0);
-           }
         
-        if (resto==0){
-            System.out.println("yes");
-            
+        if (peso % 2 == 0 && peso > 2) {
+            System.out.println("YES");
         } else {
-            System.out.println("no");  
+            System.out.println("NO");
         }
-    
     
         // System.out.println(peso);
     }
