@@ -7,6 +7,7 @@
 package taxi2;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,87 +20,41 @@ public class Taxi2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      int Ngrupos=0;
-      int a = 0,b=0,c=0,d=0;
+     
 
-    //1<=n<=10^5
-        String n =JOptionPane.showInputDialog("ingrese numero de grupos") ;
-        Ngrupos=Integer.parseInt(n);
-        int arr[]=new int[Ngrupos];
-   //1<=s<=4 numeros entre 1y4
-        for(int i=0;i<arr.length;i++){
+
+
     
-        String n1 =JOptionPane.showInputDialog("ingrese cantida de alumnos en el grupo");
-        int x=Integer.parseInt(n1);
-        arr[i]=x;
+        Scanner in = new Scanner(System.in);
 
-        }
-        int arr1[]=new int[Ngrupos];
-        int arr2[]=new int[Ngrupos];
-        int arr3[]=new int[Ngrupos];
-        int arr4[]=new int[Ngrupos];
+        int taxis = 0,grup1 = 0,grup2 = 0,grup3 = 0;
         
-        //grupo de 4 personas
-        for(int i=0;i<arr.length;i++){
-        if(arr[i]==4){
-            arr4[i]=arr[i];
-            d++;
-        }
-        }
+        int cantgrupos = in.nextInt();
         
-        //grupo de 3 personas
-        for(int i=0;i<arr.length;i++){
-        if(arr[i]==3){
-            arr3[i]=arr[i];
-            c++;
+        for(int i=0; i<cantgrupos; i++){
+            int a = in.nextInt();
+            if(a == 1)grup1++;
+            if(a == 2)grup2++;
+            if(a == 3){
+                grup3++;
+                taxis++;
+            }
+            if(a == 4)taxis++;  
         }
-        }
-        //grupo de 2 personas
-        for(int i=0;i<arr.length;i++){
-        if(arr[i]==2){
-            arr2[i]=arr[i];
-            b++;
-        }
-        }
-        //grupo de 1 personas
-        for(int i=0;i<arr.length;i++){
-        if(arr[i]==1){
-            arr1[i]=arr[i];
-            a++;
-        }
-        }
+        grup1 -= grup3;
         
-        //numero de taxis
-            a=a-c; 
-        if(d<0){
-           a=0;
-        c++;
+        if(grup2>1)taxis += grup2/2;
+        if(grup2%2 != 0){
+            taxis++;
+            grup1 -= 2;
         }
-        
-        a=a-2;
-        if(b%2==1 && a<0){
-            b++;
+        if(grup1 > 0){
+            taxis += grup1/4;
+        if(grup1%4 != 0){
+            taxis++;
         }
-        b=b/2;
-        
-        if (a>0){
-        a=a%4;
-        if (a>0){
-            a++;
         }
-        }else{
-            a=0;
-        }
-        
-        
-            System.out.println(d);
-            System.out.println(c);
-            System.out.println(b);
-            System.out.println(a);
-            
-            int suma= (int) (a+b+c+d);
-           System.out.println("el numero dde taxis es: "+suma);
-            
+        System.out.println(taxis);
     }
 }
     
